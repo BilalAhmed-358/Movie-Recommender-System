@@ -5,10 +5,8 @@ from sklearn.preprocessing import KBinsDiscretizer
 
 
 def naive_bayes_cf(user_id):
-    ratings = pd.read_csv(
-        r'C:\Users\Bilal\Desktop\RS assignment\ml-latest-small\ratings.csv')
-    movies = pd.read_csv(
-        r'C:\Users\Bilal\Desktop\RS assignment\ml-latest-small\movies.csv')
+    ratings = pd.read_csv(r'ratings.csv')
+    movies = pd.read_csv(r'movies.csv')
 
     merged_data = pd.merge(ratings, movies, on='movieId')
 

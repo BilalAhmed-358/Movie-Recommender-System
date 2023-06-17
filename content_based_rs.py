@@ -6,12 +6,9 @@ import numpy as np
 
 
 def content_based_filtering(userid):
-    ratings_df = pd.read_csv(
-        r'C:\Users\Bilal\Desktop\RS assignment\ml-latest-small\ratings.csv')
-    movies_df = pd.read_csv(
-        r'C:\Users\Bilal\Desktop\RS assignment\ml-latest-small\movies.csv')
-    tags = pd.read_csv(
-        r'C:\Users\Bilal\Desktop\RS assignment\ml-latest-small\tags.csv')
+    ratings_df = pd.read_csv(r'ratings.csv')
+    movies_df = pd.read_csv(r'movies.csv')
+    tags = pd.read_csv(r'tags.csv')
     movie_ratings_df = pd.merge(ratings_df, movies_df, on='movieId')
     user_means = movie_ratings_df.groupby('userId')['rating'].mean()
     movie_ratings_df['rating'] = movie_ratings_df['rating'] - \

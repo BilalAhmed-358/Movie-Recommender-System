@@ -4,10 +4,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 def collaborative_filtering(user_id):
-    ratings_df = pd.read_csv(
-        r'C:\Users\Bilal\Desktop\RS assignment\ml-latest-small\ratings.csv')
-    movies_df = pd.read_csv(
-        r'C:\Users\Bilal\Desktop\RS assignment\ml-latest-small\movies.csv')
+    ratings_df = pd.read_csv(r'ratings.csv')
+    movies_df = pd.read_csv(r'movies.csv')
     movie_ratings_df = pd.merge(ratings_df, movies_df, on='movieId')
     user_means = movie_ratings_df.groupby('userId')['rating'].mean()
     movie_ratings_df['rating'] = movie_ratings_df['rating'] - \
